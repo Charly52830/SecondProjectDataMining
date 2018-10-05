@@ -27,9 +27,30 @@ all the values are between 0 and 1.
 and by the size of the Dataset, is perfect for the project pourpose.
 4- The dataset is according to the World Healt Organization Criteria.
 
+Limitations of the study.
+An important fact of the dataset is its size, actually, is very small.
+The prediction of the data has just 2 output: fertile or infertile. We rely on the UCI Repository and
+we think there is not error in the data recolection.
+Also, comparing against other domains, the dataset is result of studies in laboratories and are less susceptible to fake data.
+An interesting fact who called our attention is the season of the year in which the data was collected. We are not sure if
+this is an important attribute, but we will discover it through the development of this project.
+K-nearest neighbors is a proficient algorithm for prediction in this dataset, but if it wouldn't, a brief analysis of the
+correlation will also be helpful.
+
 Data domain explanation.
-Infertility affects approximately 1 out of every 6 couples.  When the problem lies with the male partner it is referred to as male infertility. 
+Infertility affects approximately 1 out of every 6 couples.
 Male infertility factors contribute to approximately 30% of all infertility cases, and male infertility alone accounts for approximately one-fifth of all infertility cases.
+
+Much research remains to be performed on the topic of male infertility, as many cases still receive an “unknown cause” diagnosis (half of the cases). 
+Male infertility usually occurs because of sperm that are abnormal, because of inadequate numbers of sperm, or problems with ejaculation.
+
+Potential male infertility will be diagnosed as part of a thorough physical examination. 
+The examination will include a medical history regarding potential contributing factors.
+
+There is usually nothing that can be done to prevent male infertility caused by genetic problems or illness. 
+However, there are actions that men can take to decrease the possibility of infertility.
+
+
 
 There are four main causes of infertility in males:
 
