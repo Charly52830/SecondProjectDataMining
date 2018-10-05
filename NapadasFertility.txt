@@ -1,0 +1,93 @@
+Abstract.
+
+A dataset of 100 observations of different men was collected in order to predict a model about Fertility in men.
+
+In the present project we are attempting to predict wheter a men is fertile or infertile using machine learning techiniques.
+We are using the K-nearest neigbohrs algorithm to get a model so we will be able to predict fertility
+for new incoming men. 
+
+Because the domain deals with medical conditions of patients, we are expecting to obtain a
+model with a high level of prediction.
+
+The data was obtained from UCI Machine Learning Repository https://archive.ics.uci.edu/ml/index.php
+It contains 100 observations and 10 attributes.
+
+It contains several disdavantages:
+1- The attributes can't be obtained easily, it must be collected trough a specialiced laboratory.
+2- Is a relatively small dataset.
+3- Altought a man is a man here and in China, we think the results may
+vary from place to place by the conditions and habits in which distinct men live.
+
+
+Advantages:
+1- The Dataset is already normalized. We think they used the min-max normalization because
+all the values are between 0 and 1.
+2- It doesn't have missing values.
+3- The dataset is classified as "classification and Regression" dataset by the UCI,
+and by the size of the Dataset, is perfect for the project pourpose.
+4- The dataset is according to the World Healt Organization Criteria.
+
+Data domain explanation.
+Infertility affects approximately 1 out of every 6 couples.  When the problem lies with the male partner it is referred to as male infertility. 
+Male infertility factors contribute to approximately 30% of all infertility cases, and male infertility alone accounts for approximately one-fifth of all infertility cases.
+
+There are four main causes of infertility in males:
+
+    A hypothalamic or pituitary disorder (1-2%)
+    Gonad disorder (30-40%)
+    Sperm transport disorder (10-20%)
+    Unknown causes (40-50%)
+
+Much research remains to be performed on the topic of male infertility, as many cases still receive an “unknown cause” diagnosis. 
+Male infertility usually occurs because of sperm that are abnormal, because of inadequate numbers of sperm, or problems with ejaculation.
+Some of the reasons for Male intertility are:
+
+*	A pre-existing genetic condition
+*	Use of alcohol, tobacco or other drugs
+*	Hernia repairs
+*	Hormone disorder
+*	Exposure to poisonous chemicals
+*	Exposure to radiation
+*	Wearing restrictive or tight underwear
+*	Premature ejaculation
+*	Erection dysfunctions
+*	Use of certain types of medications
+
+Potential male infertility will be diagnosed as part of a thorough physical examination. 
+The examination will include a medical history regarding potential contributing factors.
+
+Male infertility is most often treated by conventional methods that include one or more of the following:
+
+*	Taking medications to help increase sperm production
+*	Taking antibiotics to heal an infection
+*	Taking hormones to improve hormone imbalance
+*	Avoiding taking long hot showers, using hot tubs or saunas
+*	Wearing looser underwear such as boxer shorts versus jockey shorts
+
+Artificial insemination is an option if the man’s sperm count is low. In this procedure, sperm is collected through multiple ejaculations. 
+They are then manually placed in the female’s uterus or fallopian tubes.
+
+Can male infertility be prevented?
+
+There is usually nothing that can be done to prevent male infertility caused by genetic problems or illness. 
+However, there are actions that men can take to decrease the possibility of infertility:
+
+*	Avoiding sexually transmitted diseases
+*	Avoiding illicit drugs
+*	Avoiding radiation when possible
+*	Avoiding exposure to toxic substances
+*	Avoiding heavy or frequent use of alcohol
+*	Observing good personal hygiene and health practices
+*	Avoiding long, hot baths, hot tubs or saunas
+*	Wearing loose-fitting underwear
+
+Fuentes:
+RESOLVE: The National Infertility Association
+	https://resolve.org/
+American Society for Reproductive Medicine (ASRM)
+	https://www.asrm.org/
+World Health Organization (WHO)
+	http://www.who.int/
+UCI Machine Learning Repository.
+	https://archive.ics.uci.edu/ml/index.php
+
