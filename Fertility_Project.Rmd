@@ -353,9 +353,48 @@ It's Right skewed!
 # Plots
 ```{r,echo=FALSE}
 ```
-## Hours sitting
+## Hours sitting and Age
 ```{r,echo=FALSE}
-  plot(x=X,y=Y,xlab="Status",ylab="Age")
+  plot(x=ferti_data$Hours.Sitting,y=ferti_data$Age,xlab="Status",ylab="Age")
+  cor(ferti_data$Hours.Sitting,ferti_data$Age)
 ```
+
+## Diagnosis
+```{r,echo=TRUE}
+Diagnostico<-c()
+for (i in 1:100) {
+  if(ferti_data$Diagnosis[i]=="N") {
+    Diagnostico<-c(Diagnostico,1)
+  }else{
+    Diagnostico<-c(Diagnostico,0)
+  }
+}
+table(Diagnostico)
+```
+## Diagnosis Boxplot
+```{r,echo=TRUE}
+boxplot(Diagnostico)
+```
+
+
+## Age and Diagnosis
+
+```{r, echo=TRUE}
+  nrow(Diagnostico)
+  cor(Diagnostico,ferti_data$Age)
+```
+
+## Age and Diagnosis
+
+```{r}
+  plot(Diagnostico,ferti_data$Age)
+```
+
+
+
+## Age and Diagnosis
+
+The correlation coefficient it´s not as high as we spected but seen our data
+we notice that the younger people had mor chances of having a Altered sperm quality as we saw in the plot we have some points down and we notice that we have 5 patients with the same age 24 years old that have Altered sperm quality.
 
 
