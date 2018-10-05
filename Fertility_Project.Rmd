@@ -8,6 +8,7 @@ output: ioslides_presentation
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
 ## Introduction
 Using R a data analysis programming language and KNN K nearest neighbors is a simple algorithm that stores all available cases and classifies new cases based on a similarity measure, we are going to analyze a dataset where 100 volunteers provide a semen sample analyzed according to the WHO 2010 criteria. Sperm concentration are related to socio-demographic data, environmental factors, health status, and life habits. The main goal is to predict whether a patient´s
 sperm quality it's ALTERED or NORMAL.<br/>
@@ -19,10 +20,63 @@ We hope you enjoy it!
 -Luis Fernando García, Carlos Daniel Ruvalcaba Serrano
  Autonomus University of Zacatecas, Mexico.
 
+##Abstract.
+
+A dataset of 100 observations of different men was collected in order to predict a model about Fertility in men.
+
+In the present project we are attempting to predict wheter a men is fertile or infertile using machine learning techiniques.
+We are using the K-nearest neigbohrs algorithm to get a model so we will be able to predict fertility
+for new incoming men. 
+
+Because the domain deals with medical conditions of patients, we are expecting to obtain a
+model with a high level of prediction.
+
+The data was obtained from UCI Machine Learning Repository.
+It contains 100 observations and 10 attributes.
+
+##Data domain explanation
+
+Infertility affects approximately 1 out of every 6 couples.
+Male infertility factors contribute to approximately 30% of all infertility cases, and male infertility alone accounts for approximately one-fifth of all infertility cases.
+
+Much research remains to be performed on the topic of male infertility, as many cases still receive an “unknown cause” diagnosis (half of the cases). 
+Male infertility usually occurs because of sperm that are abnormal, because of inadequate numbers of sperm, or problems with ejaculation.
+
+
+##Data domain explanation.
+Potential male infertility will be diagnosed as part of a thorough physical examination. 
+The examination will include a medical history regarding potential contributing factors.
+
+There is usually nothing that can be done to prevent male infertility caused by genetic problems or illness. 
+However, there are actions that men can take to decrease the possibility of infertility.
+
+
+## Disdavantages:
+<br/><br/>
+1- The attributes can't be obtained easily, it must be collected trough a specialiced laboratory.<br/><br/>
+2- Is a relatively small dataset.<br/><br/>
+3- Altought a man is a man here and in China, we think the results may
+vary from place to place by the conditions and habits in which distinct men live.<br/><br/>
+
+##Advantages:
+1- The Dataset is already normalized. We think they used the min-max normalization because all the values are between 0 and 1.<br/><br/>
+2- It doesn't have missing values.<br/><br/>
+3- The dataset is classified as "classification and Regression" dataset by the UCI, and by the size of the Dataset, is perfect for the project pourpose.<br/><br/>
+4- The dataset is according to the World Health Organization Criteria.<br/><br/>
+
+##Limitations of the study.
+An important fact of the dataset is its size, actually, is very small.
+The prediction of the data has just 2 output: fertile or infertile. We rely on the UCI Repository and we think there is not error in the data recolection.
+
+Comparing against other domains, the dataset is result of studies in laboratories and are less susceptible to fake data.
+
+An interesting fact who called our attention is the season of the year in which the data was collected. We are not sure if this is an important attribute, but we will discover it through the development of this project.
+
+K-nearest neighbors is a proficient algorithm for prediction in this dataset, but if it wouldn't, a brief analysis of the correlation will also be helpful.
+
 # Exploring the Dataset.
 ```{r,echo=FALSE}
 ```
-
 
 ## Exploring the Dataset.
 The first thing to notice it's that we have 100 instances
@@ -79,7 +133,6 @@ Child_disease describes if the pateint sufferd a Childish diseases<br/><br/>
   summary(ferti_data$Child_Disease)
 
 ```
-
 
 ##Exploring the Dataset.
 <strong>Accident</strong>
@@ -142,17 +195,167 @@ AlcoholConsumption goes from 0 to 1<br/>
   summary(ferti_data$Smoke)
 ```
   
-
-## Slide with R Output
-
-
-```{r cars, echo = TRUE}
-summary(cars)
+##Exploring the Dataset.
+<strong>Hours Sitting</strong>
+<br/><br/> Hours Sitting describes the number of hours spent sitting per day
+<br/><br/>
+  -1 : never <br/><br/>
+   0 : occasional<br/><br/>
+   1 : daily <br/><br/>
+  The hours goes from 0 to 12<br/>
+```{r,echo=TRUE}
+  summary(ferti_data$Hours.Sitting)
+```
+##Exploring the Dataset.
+<strong>Diagnosis</strong>
+<br/><br/> The final diagnosis if the patients sperm quality is normal or altered
+<br/><br/>
+   N : Normal <br/><br/>
+   A : Altered<br/><br/>
+```{r,echo=TRUE}
+  summary(ferti_data$Diagnosis)
+```
+##Structure of the Dataset.
+As we can see we have all of our characteristics with numeric values and the values are bewteen -1 and 1
+```{r,echo=TRUE}
+  str(ferti_data)
 ```
 
-## Slide with Plot
 
-```{r pressure}
-plot(pressure)
+
+# Distribution of the data
+```{r,echo=FALSE}
 ```
+## Season
+```{r,echo=TRUE}
+  hist(ferti_data$Season,main = "Season in which the study was made"
+       ,xlab = "Season",ylab="Patient")
+```
+
+## Season
+We can see that most of the studies were made in spring, the followed by fall, then winter and lastly winter.
+
+## Age
+```{r,echo=TRUE}
+  hist(ferti_data$Age,main = "Age of the patient"
+       ,xlab = "Age",ylab="No Patients")
+```
+
+##Age
+We can see that our histogram is bi-modal because it shows two peaks. Most of the ages are bewteeen 19.8 and 26 years old.
+
+```{r}
+  library(e1071)
+  skewness(ferti_data$Age)
+```
+It's right skewed!!
+
+
+
+
+## Child_Disease
+```{r,echo=TRUE}
+  hist(ferti_data$Child_Disease,main = "Childish diseases"
+       ,xlab = "Yes or not",ylab="No Patients")
+```
+
+## Child_Disease
+We can see that most of the people did not have a disease when there were child 
+```{r}
+  skewness(ferti_data$Child_Disease)
+```
+It's left skewed
+
+
+## Accident
+```{r,echo=TRUE}
+  hist(ferti_data$Accident,main = "Accidents"
+       ,xlab = "Yes or not",ylab="No Patients")
+```
+
+## Accident
+We can see that a little more than the most of the people did have an Accident 
+```{r}
+  skewness(ferti_data$Accident)
+```
+It's Right skewed!
+
+
+
+## Surge
+```{r,echo=TRUE}
+  hist(ferti_data$Surge,main = "Surge"
+       ,xlab = "Yes or not",ylab="No Patients")
+```
+
+## Surge
+We can see that a little more than the most of the people did not have a Surgical intervention
+```{r}
+  skewness(ferti_data$Surge)
+```
+It's Left skewed!
+
+
+## Fever
+```{r,echo=TRUE}
+  hist(ferti_data$Fever,main = "Fever"
+       ,xlab = "Frequency",ylab="No Patients")
+```
+
+## Fever
+We can see that the most of the people had a fever more than three months ago
+```{r}
+  skewness(ferti_data$Fever)
+```
+It'sa little bit Left skewed!
+
+## Alcohol Consumption
+```{r,echo=TRUE}
+  hist(ferti_data$AlcoholConsumption,main = "Alcohol Consumption"
+       ,xlab = "Frequency",ylab="No Patients")
+```
+
+## Alcohol Consumption
+We can see that the most of the people does not consume alcohol
+```{r}
+  skewness(ferti_data$AlcoholConsumption)
+```
+It's Left skewed!
+
+
+## Smoking habit
+```{r,echo=TRUE}
+  hist(ferti_data$Smoke,main = "Smoking Habit"
+       ,xlab = "Frequency",ylab="No Patients")
+```
+
+## Smoking Habit
+We can see that the most of the people does not smoke
+```{r}
+  skewness(ferti_data$Smoke)
+```
+It's Right skewed!
+
+
+## Hours Sitting
+```{r,echo=TRUE}
+  hist(ferti_data$Hours.Sitting,main = "Hours of sitting"
+       ,xlab = "Number of Hours",ylab="No Patients")
+```
+
+## Hours sitting
+We can see that the most of the people spend between 4.2 and 6 hours sitting down
+```{r}
+  skewness(ferti_data$Hours.Sitting)
+```
+It's Right skewed!
+
+# Plots
+```{r,echo=FALSE}
+```
+## Hours sitting
+```{r,echo=FALSE}
+  plot(x=X,y=Y,xlab="Status",ylab="Age")
+```
+
 
